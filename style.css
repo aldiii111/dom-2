@@ -28,5 +28,6 @@ label {
     display: flex;
     flex-direction: column;
     gap: 2rem;
-    padding: 2rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
 }
