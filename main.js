@@ -23,9 +23,17 @@ harga.id = "harga"
 
 const buttonEdit = document.createElement('button')
 buttonEdit.id = "buttonEdit"
+buttonEdit.textContent = "edit"
 
 const buttonReset = document.createElement('button')
 buttonReset.id = "buttonReset"
+buttonReset.textContent= "hapus"
+
+const divv = document.getElementById('carddiv')
+const b1 = document.getElementById('produk')
+const b2 = document.getElementById('harga')
+const button1 = document.getElementById('buttonEdit')
+const button2 = document.getElementById('buttonReset')
 
 let infoUser = []
 
@@ -45,6 +53,8 @@ form1.addEventListener("submit", function(event){
         result = "nama barang: " + inputProduk
         result2 = "harga nya: " + inputHarga
         infoUser.push(result, result2)
-        alert(infoUser)
+        card.append(namaProduk, harga, buttonEdit, buttonReset)
+
+        body.append(card)
     }
 })
