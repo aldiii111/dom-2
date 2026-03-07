@@ -8,7 +8,6 @@ const pResult = document.getElementById('pResult')
 const alert1 = document.getElementById('alertProduk')
 
 const card = document.createElement('div')
-card.id = "carddiv"
 card.style.boxShadow = "0 2px 5px 2px rgb(0, 0, 0, 0.2)"
 card.style.padding = "10px"
 card.style.display = "flex"
@@ -27,32 +26,40 @@ buttonReset.id = "buttonReset"
 buttonReset.style.marginTop = "15px"
 buttonReset.textContent= "hapus"
 
-const divv = document.getElementById('carddiv')
-const b1 = document.getElementById('produk')
-const b2 = document.getElementById('harga')
-const button1 = document.getElementById('buttonEdit')
-const button2 = document.getElementById('buttonReset')
-
-let kartu = card.append(namaProduk, buttonEdit, buttonReset)
 let infoUser = [];
+let kr1;
+let kr2;
 let total;
 
 form1.addEventListener("submit", function(event){
     event.preventDefault();
 
-    total + 1
-
     const inputProduk = document.getElementById('inputProduk').value
     const inputHarga = document.getElementById('inputHarga').value
-    let result;
+
+    total = infoUser.length
 
     if(inputProduk === "" || inputHarga === "") {
         alert1.textContent = "harap di isi"
         alert1.style.color = "red"
     }else if(inputProduk !== "" || inputHarga !== "") {
         alert1.textContent = ""
-        result = "nama barang : " + inputProduk + "<br><br>" + "harga nya : " + inputHarga
-        infoUser.push(result)
-        divResult.append(card)
+
+        let kartu = {
+            
+        }
+
+        infoUser.push(kartu)
+        infoUser.forEach(funcsion)
+
+        function funcsion() {
+            namaProduk.innerHTML = "nama barang : " + inputProduk + "<br><br>" + "harga nya : " + inputHarga
+            card.append(namaProduk, buttonEdit, buttonReset)
+            divResult.append(infoUser)
+        }
+        pResult.innerHTML = total
     }
+    // sama tiap kali submit !== "" card nya ke generate cuman satu tapi
+    // outpput namaProduk sudah benar bisa mengikuti array.length, 
+    // sama belum bisa muncul history
 })
