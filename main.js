@@ -37,6 +37,10 @@ form1.addEventListener("submit", function(event){
 
     total = infoUser.length
 
+    function addCard() {
+        
+    }
+
     if(inputProduk === "" || inputHarga === "") {
         alert1.textContent = "harap di isi"
         alert1.style.color = "red"
