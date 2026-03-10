@@ -27,8 +27,6 @@ buttonReset.style.marginTop = "15px"
 buttonReset.textContent= "hapus"
 
 let infoUser = [];
-let kr1;
-let kr2;
 let total;
 
 form1.addEventListener("submit", function(event){
@@ -44,19 +42,7 @@ form1.addEventListener("submit", function(event){
         alert1.style.color = "red"
     }else if(inputProduk !== "" || inputHarga !== "") {
         alert1.textContent = ""
-
-        let kartu = {
-            
-        }
-
-        infoUser.push(kartu)
-        infoUser.forEach(funcsion)
-
-        function funcsion() {
-            namaProduk.innerHTML = "nama barang : " + inputProduk + "<br><br>" + "harga nya : " + inputHarga
-            card.append(namaProduk, buttonEdit, buttonReset)
-            divResult.append(infoUser)
-        }
+        
         pResult.innerHTML = total
     }
     // sama tiap kali submit !== "" card nya ke generate cuman satu tapi
