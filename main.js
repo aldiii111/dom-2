@@ -7,27 +7,9 @@ const pResult = document.getElementById('pResult')
 
 const alert1 = document.getElementById('alertProduk')
 
-const card = document.createElement('div')
-card.style.boxShadow = "0 2px 5px 2px rgb(0, 0, 0, 0.2)"
-card.style.padding = "10px"
-card.style.display = "flex"
-card.style.flexDirection = "column"
-  
-const namaProduk = document.createElement('b')
-namaProduk.id = "produk"
-
-const buttonEdit = document.createElement('button')
-buttonEdit.id = "buttonEdit"
-buttonEdit.style.marginTop = "15px"
-buttonEdit.textContent = "edit"
-
-const buttonReset = document.createElement('button')
-buttonReset.id = "buttonReset"
-buttonReset.style.marginTop = "15px"
-buttonReset.textContent= "hapus"
-
 let infoUser = [];
 let total;
+let cardd;
 
 form1.addEventListener("submit", function(event){
     event.preventDefault();
@@ -38,7 +20,29 @@ form1.addEventListener("submit", function(event){
     total = infoUser.length
 
     function addCard() {
-        
+        const card = document.createElement('div')
+        card.style.boxShadow = "0 2px 5px 2px rgb(0, 0, 0, 0.2)"
+        card.style.padding = "10px"
+        card.style.display = "flex"
+        card.style.flexDirection = "column"
+
+        const namaProduk = document.createElement('b')
+        namaProduk.id = "produk"
+        namaProduk.innerHTML = cardd
+
+        const buttonEdit = document.createElement('button')
+        buttonEdit.id = "buttonEdit"
+        buttonEdit.style.marginTop = "15px"
+        buttonEdit.textContent = "edit"
+
+        const buttonReset = document.createElement('button')
+        buttonReset.id = "buttonReset"
+        buttonReset.style.marginTop = "15px"
+        buttonReset.textContent= "hapus"
+
+        card.append(namaProduk, buttonEdit, buttonReset)
+        divResult.append(card)
+
     }
 
     if(inputProduk === "" || inputHarga === "") {
@@ -46,8 +50,12 @@ form1.addEventListener("submit", function(event){
         alert1.style.color = "red"
     }else if(inputProduk !== "" || inputHarga !== "") {
         alert1.textContent = ""
-        
+        cardd = {nama: inputProduk, harga: inputHarga}
+        infoUser.push(cardd)
+        // infoUser.forEach(addCard)
+        addCard()
         pResult.innerHTML = total
+        console.log(infoUser)
     }
     // sama tiap kali submit !== "" card nya ke generate cuman satu tapi
     // outpput namaProduk sudah benar bisa mengikuti array.length, 
