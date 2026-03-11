@@ -62,5 +62,10 @@ form1.addEventListener("submit", function(event){
         addCard()
         pResult.innerHTML = total
         console.log(infoUser)
+
+
+
+
+        
     }
 })
