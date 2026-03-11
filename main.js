@@ -28,7 +28,6 @@ form1.addEventListener("submit", function(event){
 
         const namaProduk = document.createElement('b')
         namaProduk.id = "produk"
-        namaProduk.innerHTML = cardd
 
         const buttonEdit = document.createElement('button')
         buttonEdit.id = "buttonEdit"
@@ -42,22 +41,26 @@ form1.addEventListener("submit", function(event){
 
         card.append(namaProduk, buttonEdit, buttonReset)
         divResult.append(card)
-
     }
+
+    function NamaProduk(namaBarang, hargaBarang) {
+            this.nama = namaBarang
+            this.harga = hargaBarang
+        }
 
     if(inputProduk === "" || inputHarga === "") {
         alert1.textContent = "harap di isi"
         alert1.style.color = "red"
     }else if(inputProduk !== "" || inputHarga !== "") {
         alert1.textContent = ""
-        cardd = {nama: inputProduk, harga: inputHarga}
+        cardd = new NamaProduk("nama barang:  " + inputProduk + "<br><br>", "harga barang:  " + inputHarga)
         infoUser.push(cardd)
-        // infoUser.forEach(addCard)
-        addCard()
+        
+        infoUser.forEach(textUser)
+        function textUser() {
+            addCard()
+        }
         pResult.innerHTML = total
         console.log(infoUser)
     }
-    // sama tiap kali submit !== "" card nya ke generate cuman satu tapi
-    // outpput namaProduk sudah benar bisa mengikuti array.length, 
-    // sama belum bisa muncul history
 })
