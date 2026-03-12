@@ -27,11 +27,6 @@ form1.addEventListener("submit", function(event){
     const namaProduk = document.createElement('b')
         namaProduk.id = "produk"
 
-    const buttonEdit = document.createElement('button')
-        buttonEdit.id = "buttonEdit"
-        buttonEdit.style.marginTop = "15px"
-        buttonEdit.textContent = "edit"
-
     const buttonReset = document.createElement('button')
         buttonReset.id = "buttonReset"
         buttonReset.style.marginTop = "15px"
@@ -41,7 +36,7 @@ form1.addEventListener("submit", function(event){
     total = infoUser.length
 
     function addCard() {
-        card.append(namaProduk, buttonEdit, buttonReset)
+        card.append(namaProduk, buttonReset)
         divResult.append(card)
     }
 
