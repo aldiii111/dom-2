@@ -40,8 +40,7 @@ form1.addEventListener("submit", function(event){
 
     total = infoUser.length
 
-    function addCard(textUser) {
-        this.user = textUser
+    function addCard() {
         card.append(namaProduk, buttonEdit, buttonReset)
         divResult.append(card)
     }
@@ -58,14 +57,11 @@ form1.addEventListener("submit", function(event){
         alert1.textContent = ""
         cardd = new NamaProduk("nama barang:  " + inputProduk + "<br><br>", "harga barang:  " + inputHarga)
         infoUser.push(cardd)
-        text = new addCard(namaProduk.innerHTML = cardd)
         addCard()
+        namaProduk.innerHTML = cardd.nama
+        namaProduk.innerHTML += cardd.harga
+
         pResult.innerHTML = total
         console.log(infoUser)
-
-
-
-
-        
     }
 })
